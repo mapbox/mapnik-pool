@@ -1,0 +1,34 @@
+{
+  "name": "mapnik-pool",
+  "version": "0.0.0",
+  "description": "manage a pool of mapnik instances",
+  "main": "index.js",
+  "scripts": {
+    "test": "tap test/*.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:mapbox/mapnik-pool.git"
+  },
+  "keywords": [
+    "mapnik",
+    "pool",
+    "maps"
+  ],
+  "author": "Tom MacWright",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mapbox/mapnik-pool/issues"
+  },
+  "homepage": "https://github.com/mapbox/mapnik-pool",
+  "dependencies": {
+    "generic-pool": "~2.0.4",
+    "xtend": "~3.0.0"
+  },
+  "peerDependencies": {
+    "mapnik": "~0.7.28"
+  },
+  "devDependencies": {
+    "tap": "~0.4.8"
+  }
+}
