@@ -1,5 +1,9 @@
 var test = require('tap').test,
-    mapnikPool = require('../'),
+    mapnik = require('mapnik');
+
+mapnik.register_default_input_plugins();
+
+var mapnikPool = require('../')(mapnik),
     fs = require('fs');
 
 test('mapnik-pool', function(t) {
@@ -8,6 +12,7 @@ test('mapnik-pool', function(t) {
             { bufferSize: 256 });
 
     pool.acquire(function(err, map) {
+        t.equal(err, null, 'no error returned');
         t.pass('acquires a map');
         t.equal(map.bufferSize, 256, 'sets a buffer size');
         t.equal(map.width, 256, 'sets map size');
