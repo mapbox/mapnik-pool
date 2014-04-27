@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/mapbox/mapnik-pool.svg?branch=master)](https://travis-ci.org/mapbox/mapnik-pool)
+
 # mapnik-pool
 
 If you want to use `node-mapnik` in an app with concurrency, you'll want to use
