@@ -21,6 +21,18 @@ test('mapnik-pool', function(t) {
     });
 });
 
+test('initOptions', function(t) {
+    var pool = mapnikPool.fromString(
+            fs.readFileSync(__dirname + '/data/map.xml', 'utf8'),
+            { size: 1024 });
+
+    pool.acquire(function(err, map) {
+        t.equal(map.width, 1024, 'use initOptions to set map width');
+        t.equal(map.height, 1024, 'use initOptions to set map height');
+        t.end();
+    });
+});
+
 test('passes errors', function(t) {
     var pool = mapnikPool.fromString('invalid map',
             { bufferSize: 256 });
