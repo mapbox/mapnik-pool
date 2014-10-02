@@ -1,3 +1,5 @@
+![mapnik-pool](https://cloud.githubusercontent.com/assets/83384/4493143/fe155e76-4a46-11e4-81db-61f319910acb.png)
+
 [![Build Status](https://travis-ci.org/mapbox/mapnik-pool.svg?branch=master)](https://travis-ci.org/mapbox/mapnik-pool)
 
 # mapnik-pool
