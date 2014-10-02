@@ -9,7 +9,7 @@ var N_CPUS = os.cpus().length,
 module.exports = function(mapnik) {
     return {
         fromString: function(xml, initOptions, mapOptions) {
-            var options = xtend({}, initOptions, defaultOptions);
+            var options = xtend({}, defaultOptions, initOptions);
             mapOptions = mapOptions || {};
             return Pool({
                 create: create,
