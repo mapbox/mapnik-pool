@@ -1,6 +1,6 @@
 {
   "name": "mapnik-pool",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "manage a pool of mapnik instances",
   "main": "index.js",
   "scripts": {
