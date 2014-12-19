@@ -22,7 +22,7 @@
   },
   "homepage": "https://github.com/mapbox/mapnik-pool",
   "dependencies": {
-    "generic-pool": "~2.0.4",
+    "generic-pool": "~2.1.1",
     "xtend": "~3.0.0"
   },
   "peerDependencies": {
