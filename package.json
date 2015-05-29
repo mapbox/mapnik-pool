@@ -26,10 +26,10 @@
     "xtend": "~3.0.0"
   },
   "peerDependencies": {
-    "mapnik": ">= 1.4.2 < 4.0.0"
+    "mapnik": "3.3.1-alpha"
   },
   "devDependencies": {
     "tap": "~0.4.8",
-    "mapnik": ">= 1.4.2 < 4.0.0"
+    "mapnik": "3.3.1-alpha"
   }
 }
