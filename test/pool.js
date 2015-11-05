@@ -1,10 +1,16 @@
 var test = require('tap').test,
-    mapnik = require('mapnik');
+    mapnik = require('mapnik'),
+    Pool = require('generic-pool').Pool;
 
 mapnik.register_default_input_plugins();
 
 var mapnikPool = require('../')(mapnik),
     fs = require('fs');
+
+test('mapnik-pool exposes generic-pool', function(t) {
+    t.equal(Pool,require('../').Pool);
+    t.end();
+});
 
 test('mapnik-pool', function(t) {
     var pool = mapnikPool.fromString(
