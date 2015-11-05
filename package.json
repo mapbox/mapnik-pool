@@ -4,7 +4,7 @@
   "description": "manage a pool of mapnik instances",
   "main": "index.js",
   "scripts": {
-    "test": "tap test/*.js",
+    "test": "tape test/*.js",
     "coverage": "istanbul cover tape test/*.js && coveralls < ./coverage/lcov.info"
   },
   "repository": {
@@ -23,16 +23,16 @@
   },
   "homepage": "https://github.com/mapbox/mapnik-pool",
   "dependencies": {
-    "coveralls": "^2.11.4",
     "generic-pool": "~2.2.1",
-    "istanbul": "^0.4.0",
     "xtend": "~3.0.0"
   },
   "peerDependencies": {
     "mapnik": ">= 1.4.2 < 4.0.0"
   },
   "devDependencies": {
-    "tap": "~0.4.8",
+    "coveralls": "^2.11.4",
+    "istanbul": "^0.4.0",
+    "tape": "^4.2.2",
     "mapnik": ">= 1.4.2 < 4.0.0"
   }
 }

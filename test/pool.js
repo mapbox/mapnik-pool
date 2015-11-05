@@ -1,4 +1,4 @@
-var test = require('tap').test,
+var test = require('tape').test,
     mapnik = require('mapnik'),
     Pool = require('generic-pool').Pool;
 
