@@ -33,3 +33,5 @@ module.exports = function(mapnik) {
         }
     };
 };
+
+module.exports.Pool = Pool;
