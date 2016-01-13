@@ -30,6 +30,26 @@ module.exports = function(mapnik) {
             function destroy(map) {
                 delete map;
             }
+        },
+        fromStringSync: function(xml, initOptions, mapOptions) {
+            var options = xtend({}, defaultOptions, initOptions);
+            mapOptions = mapOptions || {};
+            return Pool({
+                create: create,
+                destroy: destroy,
+                max: N_CPUS
+            });
+            function create(callback) {
+                var map = new mapnik.Map(options.size, options.size);
+                map.fromStringSync(xml, mapOptions);
+                if (options.bufferSize) {
+                    map.bufferSize = options.bufferSize;
+                }
+                return callback(null, map);
+            }
+            function destroy(map) {
+                delete map;
+            }
         }
     };
 };
