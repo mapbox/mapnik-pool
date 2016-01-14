@@ -29,7 +29,12 @@ module.exports = function(mapnik) {
             }
             function createSync(callback) {
                 var map = new mapnik.Map(options.size, options.size);
-                map.fromStringSync(xml, mapOptions);
+                try {
+                  map.fromStringSync(xml, mapOptions);
+                }
+                catch (err) {
+                  return callback(err);
+                }
                 if (options.bufferSize) {
                     map.bufferSize = options.bufferSize;
                 }
