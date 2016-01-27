@@ -26,9 +26,6 @@
     "generic-pool": "~2.2.1",
     "xtend": "~4.0.0"
   },
-  "peerDependencies": {
-    "mapnik": ">= 1.4.2 < 4.0.0"
-  },
   "devDependencies": {
     "coveralls": "^2.11.4",
     "istanbul": "^0.4.0",
