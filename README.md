@@ -5,8 +5,7 @@
 
 # mapnik-pool
 
-If you want to use `node-mapnik` in an app with concurrency, you'll want to use
-a map pool. By design Mapnik Maps are not meant to be shared between threads because datasources hold state. This [may change in the future](https://github.com/mapnik/mapnik/issues/2521) but for now using a single map instance with async node-mapnik rendering functions may your app. Also using several map instances will give you a significant speedup. `mapnik-pool` manages a `generic-pool` of `mapnik.Map` instances so you don't have to.
+If you want to use `node-mapnik` to render tiles in an async fashion for highest performance, you've come to the right place: you need a map pool. This is because you must ensure that when you call `map.render` no other threads are using that `map` instance. When you call an async function like `map.render` Node.js is creating a thread behind the scene.
 
 ## install
 
