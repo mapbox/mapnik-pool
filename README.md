@@ -27,6 +27,24 @@ var pool = mapnikPool.fromString(fs.readFileSync('mymap.xml', 'utf8'));
 
 pool.acquire(function(err, map) {
     // pooled map
+    pool.release(map);
+});
+```
+
+```js
+var mapnik = require('mapnik'),
+    mapnikPool = require('mapnik-pool')(mapnik),
+    fs = require('fs');
+
+var datasource = new mapnik.Datasource(...);
+var layer = new mapnik.Layer(...);
+layer.datasource = datasource;
+
+var pool = mapnikPool.fromLayers([layer], { size: 256, srs: '...' });
+
+pool.acquire(function(err, map) {
+    // pooled map
+    pool.release(map);
 });
 ```
 
@@ -37,3 +55,8 @@ pool.acquire(function(err, map) {
 * `str`: a Mapnik XML string
 * `initOptions`: options for initialization. Currently, `size` for map, `bufferSize`. Default `{ size: 256 }`
 * `mapOptions`: options for the `fromString` method.
+
+### `fromLayers(arr, initOptions)`
+
+* `arr`: an array of Mapnik layers
+* `initOptions`: options for initialization. Currently, `srs`, `size` for map, `bufferSize`. Default `{ size: 256 }`
