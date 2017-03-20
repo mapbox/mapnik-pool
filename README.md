@@ -56,7 +56,7 @@ pool.acquire(function(err, map) {
 * `initOptions`: options for initialization. Currently, `size` for map, `bufferSize`. Default `{ size: 256 }`
 * `mapOptions`: options for the `fromString` method.
 
-### `fromLayers(arr, initOptions, mapOptions)`
+### `fromLayers(arr, initOptions)`
 
 * `arr`: an array of Mapnik layers
 * `initOptions`: options for initialization. Currently, `srs`, `size` for map, `bufferSize`. Default `{ size: 256 }`

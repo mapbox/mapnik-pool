@@ -40,7 +40,9 @@ module.exports = function(mapnik) {
             });
             function create(callback) {
                 var map = new mapnik.Map(options.size, options.size, options.srs);
-                layers.forEach(layer => map.add_layer(layer));
+                for (var i = 0; i < layers.length; i++) {
+                    map.add_layer(layers[i]);
+                }
                 if (options.bufferSize) {
                     map.bufferSize = options.bufferSize;
                 }
