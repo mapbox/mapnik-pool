@@ -35,5 +35,5 @@ pool.acquire(function(err, map) {
 ### `fromString(str, initOptions, mapOptions)`
 
 * `str`: a Mapnik XML string
-* `initOptions`: options for initialization. Currently, `size` for map, `bufferSize`. Default `{ size: 256 }`
+* `initOptions`: options for initialization. Currently, `size` for map, `bufferSize`, and `sync` for whether to load map synchronously (may help eliminate race conditions in some situations). Default `{ size: 256, sync: false}`
 * `mapOptions`: options for the `fromString` method.
