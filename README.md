@@ -1,6 +1,6 @@
 ![mapnik-pool](https://cloud.githubusercontent.com/assets/83384/4493143/fe155e76-4a46-11e4-81db-61f319910acb.png)
 
-[![Build Status](https://travis-ci.org/mapbox/mapnik-pool.svg?branch=master)](https://travis-ci.org/mapbox/mapnik-pool)
+[![Build Status](https://travis-ci.com/mapbox/mapnik-pool.svg?branch=master)](https://travis-ci.com/mapbox/mapnik-pool)
 [![Coverage Status](https://coveralls.io/repos/mapbox/mapnik-pool/badge.svg?branch=master&service=github)](https://coveralls.io/github/mapbox/mapnik-pool?branch=master)
 
 # mapnik-pool
