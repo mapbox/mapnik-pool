@@ -3,7 +3,7 @@ var Pool = require('generic-pool').Pool,
     xtend = require('xtend');
 
 var N_CPUS = os.cpus().length,
-    defaultOptions = { size: 256 },
+    defaultOptions = { size: 256, sync: false },
     defaultMapOptions = { };
 
 module.exports = function(mapnik) {
@@ -12,7 +12,7 @@ module.exports = function(mapnik) {
             var options = xtend({}, defaultOptions, initOptions);
             mapOptions = mapOptions || {};
             return Pool({
-                create: create,
+                create: options.sync ? createSync : create,
                 destroy: destroy,
                 max: N_CPUS
             });
@@ -26,6 +26,19 @@ module.exports = function(mapnik) {
                     }
                     return callback(err, map);
                 }
+            }
+            function createSync(callback) {
+                var map = new mapnik.Map(options.size, options.size);
+                try {
+                  map.fromStringSync(xml, mapOptions);
+                }
+                catch (err) {
+                  return callback(err);
+                }
+                if (options.bufferSize) {
+                    map.bufferSize = options.bufferSize;
+                }
+                return callback(null, map);
             }
             function destroy(map) {
                 delete map;

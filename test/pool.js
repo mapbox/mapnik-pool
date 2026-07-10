@@ -64,3 +64,39 @@ test('passes errors', function(t) {
         });
     });
 });
+
+test('mapnik-pool synchronous loading', function(t) {
+    var pool = mapnikPool.fromString(
+            fs.readFileSync(__dirname + '/data/map.xml', 'utf8'),
+            { bufferSize: 256, sync: true});
+
+    pool.acquire(function(err, map) {
+        t.equal(err, null, 'no error returned');
+        t.pass('acquires a map');
+        t.equal(map.bufferSize, 256, 'sets a buffer size');
+        t.equal(map.width, 256, 'sets map size');
+        t.equal(map.height, 256, 'sets map size');
+        pool.release(map);
+        pool.drain(function() {
+            pool.destroyAllNow(function() {
+                t.end();
+            });
+        });
+    });
+});
+
+test('synchronous loading passes errors', function(t) {
+    var pool = mapnikPool.fromString('invalid map',
+            { bufferSize: 256, sync: true });
+
+    pool.acquire(function(err, map) {
+        t.ok(err instanceof Error,'expected error');
+        t.ok(!map,'expected map to be null');
+        pool.drain(function() {
+            pool.destroyAllNow(function() {
+                t.end();
+            });
+        });
+    });
+});
+
